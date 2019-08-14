@@ -32,6 +32,7 @@ public final class RegionTest {
         assertEndpoint("ap-southeast-2", "s3-ap-southeast-2.amazonaws.com");
         assertEndpoint("ap-northeast-1", "s3-ap-northeast-1.amazonaws.com");
         assertEndpoint("sa-east-1", "s3-sa-east-1.amazonaws.com");
+        assertEndpoint("cn-northwest-1", "s3.cn-northwest-1.amazonaws.com.cn");
     }
 
     @Test(expected = IllegalArgumentException.class)

@@ -6,7 +6,7 @@
 	<groupId>org.springframework.build</groupId>
 	<artifactId>aws-maven</artifactId>
 	<packaging>jar</packaging>
-	<version>5.1.0.BUILD-SNAPSHOT</version>
+	<version>FASTONE</version>
 	<name>Amazon Web Services S3 Maven Wagon Support</name>
 	<description>Standard Maven wagon support for s3:// urls</description>
 
@@ -110,6 +110,7 @@
 				<version>2.16</version>
 				<configuration>
 					<runOrder>random</runOrder>
+					<argLine>-Dbuckets=fastone-maven-bj</argLine>
 				</configuration>
 			</plugin>
             <plugin>
@@ -118,6 +119,13 @@
                 <version>2.2</version>
             </plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.springframework.build</groupId>
+				<artifactId>aws-maven</artifactId>
+				<version>FASTONE</version>
+			</extension>
+		</extensions>
 	</build>
 
 	<url>https://github.com/spring-projects/aws-maven</url>
@@ -159,5 +167,15 @@
 			<email>bhale@gopivotal.com</email>
 		</developer>
 	</developers>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>fastone-maven-repo</id>
+			<url>s3://fastone-maven-bj/snapshot</url>
+		</snapshotRepository>
+		<repository>
+			<id>fastone-maven-repo</id>
+			<url>s3://fastone-maven-bj/release</url>
+		</repository>
+	</distributionManagement>
 
 </project>

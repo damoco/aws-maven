@@ -83,6 +83,7 @@ public final class SimpleStorageServiceWagon extends AbstractWagon {
             this.baseDirectory = S3Utils.getBaseDirectory(repository);
 
             this.amazonS3 = new AmazonS3Client(credentialsProvider, clientConfiguration);
+            this.amazonS3.setEndpoint("s3.cn-north-1.amazonaws.com.cn");
             Region region = Region.fromLocationConstraint(this.amazonS3.getBucketLocation(this.bucketName));
             this.amazonS3.setEndpoint(region.getEndpoint());
         }
